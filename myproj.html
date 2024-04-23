@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+<head>
+    <title>My Projects</title>
+    <link rel="icon" type="image/png" href="mint-removebg-preview.png"/>
+    <link rel="stylesheet" href="homecss.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+<div class="header">
+<nav>
+    <ul>
+        <li><img src="mint-removebg-preview.png" style="height: 40px;" alt="our logo"></li>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="sell.html">Sell NFT</a></li>
+        <li><a href="myproj.html">MyProjects</a></li>
+        <li><a href="about.html">About NFT</a></li>
+    </ul>
+</nav>
+<h2 class="headd">
+  <img src="trophy.png" alt="Trophy Icon" style="width:25px; margin-right: 10px;">
+  <span style="color: black; font-weight: bold;">
+    Some of My self Designed NFTs!
+  </span>
+</h2>
+
+<div class="slideshow-container">
+    <div class="mySlides fade">
+      <img style="width: 40%;" class="iimg" src="mp1.jpeg">
+      <div class="text"><b>#1354</b></div>
+    </div>
+  
+    <div class="mySlides fade">
+      <img style="width: 40%;" class="iimg" src="mp2.jpeg">
+      <div class="text"><B>#3057</B></div>
+    </div>
+  
+    <div class="mySlides fade">
+      <img style="width: 40%;" class="iimg" src="mp3.jpeg">
+      <div class="text"><b>#3253</b></div>
+    </div>
+    <div class="mySlides fade">
+        <img style="width: 40%;" class="iimg" src="mp4.jpeg">
+        <div class="text"><b>#4142</b></div>
+    </div>
+  
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    <span class="dot" onclick="currentSlide(4)"></span>
+  </div>
+</div>
+<div class="smallcontainer">
+  <h2 style="text-align: center; color: white;">Dont forget to review them below</h2>
+  <div class="row">
+    <div class="col4">
+      <a href="thnx.html">
+        <img src="mp5.jpeg" alt="">
+      </a>
+      <div class="price-tag">
+        <span style="font-weight: bold;">0.5 ETH</span>
+      </div>
+      <h4 style="text-align: center;">#5168</h4>
+    </div>
+    <div class="col4">
+      <a href="thnx.html">
+        <img src="mp6.jpeg" alt="">
+      </a>
+      <div class="price-tag">
+        <span style="font-weight: bold;">Ξ 1.23 (ETH)</span>
+      </div>
+      <h4 style="text-align: center;">#771</h4>
+    </div>
+    <div class="col4">
+      <a href="thnx.html">
+        <img src="mp7.jpeg" alt="">
+      </a>
+      <div class="price-tag">
+        <span style="font-weight: bold;">$4,567 USD</span>
+      </div>
+      <h4 style="text-align: center;">#9394</h4>
+    </div>
+    <div class="col4">
+      <a href="thnx.html">
+        <img src="mp8.jpeg" alt="">
+      </a>
+      <div class="price-tag">
+        <span style="font-weight: bold;">Auction</span>
+      </div>
+      <h4 style="text-align: center;">#9624</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col4">
+      <a href="thnx.html">
+        <img src="mp1.jpeg" alt="">
+      </a>
+      <div class="price-tag">
+        <span style="font-weight: bold;">0.88 ETH</span>
+      </div>
+      <h4 style="text-align: center;">#1354</h4>
+    </div>
+    <div class="col4">
+      <a href="thnx.html">
+        <img src="mp2.jpeg" alt="">
+      </a>
+      <div class="price-tag">
+        <span style="font-weight: bold;">Make an Offer</span>
+      </div>
+      <h4 style="text-align: center;">#3057</h4>
+    </div>
+    <div class="col4">
+      <a href="thnx.html">
+        <img src="mp3.jpeg" alt="">
+      </a>
+      <div class="price-tag">
+        <span style="font-weight: bold;">10.00 DAI</span>
+      </div>
+      <h4 style="text-align: center;">#3253</h4>
+    </div>
+    <div class="col4">
+      <a href="thnx.html">
+        <img src="mp4.jpeg" alt="">
+      </a>
+      <div class="price-tag">
+        <span style="font-weight: bold;">New Listing</span>
+      </div>
+      <h4 style="text-align: center;">#4142</h4>
+    </div>
+  </div>
+</div>
+<div class="footer" ng-controller="ngcont">
+    <div ng-repeat="review in reviews">
+        <div class="box">
+            <h3>Name: {{ review.name }}</h3>
+            <p style="color: black;">Review: "{{ review.rev }}"</p>
+        </div>
+    </div>
+    <form name="fm1" ng-submit="submitForm()" novalidate>
+        <h2>Because, Your reviews do matter✨</h2>
+        <div class="namebox">
+            Name: <input class="inp" size="50" type="text" name="nm" ng-model="nm" required>
+            <span style="color: red;" ng-show="fm1.nm.$invalid && fm1.nm.$touched">Required field!</span>
+        </div>
+        <br>
+        <br>
+        <div class="revbox">
+            Review: <input class="inp" size="50" type="text" name="rev" ng-model="rev" required>
+            <span style="color: red;" ng-show="fm1.rev.$invalid && fm1.rev.$touched">Required field!</span>
+        </div>
+        <br>
+        <br>
+        <button type="submit" style="border-radius: 10px;">Post</button>
+    </form>
+</div>
+  <script>
+    var mod1 = angular.module("myapp", []);
+mod1.controller("ngcont", function ($scope) {
+    $scope.nm = "";
+    $scope.rev = "";
+    $scope.submitted = false;
+    $scope.reviews = [];
+
+    $scope.submitForm = function () {
+        if ($scope.fm1.$valid) {
+            $scope.reviews.push({
+                "name": $scope.nm,
+                "rev": $scope.rev
+            });
+            $scope.nm = "";
+            $scope.rev = "" // Clear form fields after submission
+            $scope.submitted = true;
+        }
+    };
+});
+
+  </script>
+<script src="homejs.js"></script> 
+</body>
+</html>

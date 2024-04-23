@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myapp">
+
+<head>
+  <title>MintCraft-Your better NFT marketplace</title>
+  <link rel="icon" type="image/png" href="mint-removebg-preview.png"/>
+  <link rel="stylesheet" href="homecss.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <link rel="stylesheet" href="homecss.css">
+</head>
+
+<body>
+  <div class="header">
+    <nav>
+      <ul>
+        <li><img src="mint-removebg-preview.png" style="height: 40px;" alt="our logo"></li>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="sell.html">Sell NFT</a></li>
+        <li><a href="myproj.html">MyProjects</a></li>
+        <li><a href="about.html">About NFT</a></li>
+      </ul>
+    </nav>
+    <div class="row" style="margin-left: 150px;">
+      <div class="col2">
+        <h1 style="font-family: fantasy;">Enter the World of<br><b>NFT!</b></h1>
+        <p style="color: #512b58;"><b>A</b>s the metaverse continues to grow, learn about what non-fungible tokens
+          (NFTs) are, how to create them, and ways to earn money selling them. Eplore the NFT selling options for
+          digital artwork and how you can get started in this developing field.</p>
+        <a href="about.html" style="font-family: monaco;" class="btn">Explore Now!</a>
+      </div>
+      <div class="col2">
+        <img src="log2.png" alt="hello">
+      </div>
+
+    </div>
+
+    <div class="qte" style="background-color: #352835;">
+      <br>
+      <h3 class="qte"
+        style="text-align: center; color: white; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+        <i><b>“People don't understand NFTs, Metaverse, and crypto today the same way they didn't understand online
+            shopping in 1995.”</b></i></h3>
+      <h5 class="aut" style="text-align: right; margin-right: 10%; color: white;"><b> -Anuj Jasani</b></h5>
+    </div>
+  </div>
+  </div>
+  <!--featured products-->
+  <div class="smallcontainer">
+    <h2 style="text-align: center; color: white;">featured products</h2>
+    <div class="row">
+      <div class="col4"><a href="lp.html">
+          <img src="pudgy1.avif" alt="">
+          <h4 style="text-align: center;">Lil Pudgy
+        </a></h4>
+      </div>
+      <div class="col4"><a href="aob.html">
+          <img src="aob.png" alt="">
+          <h4 style="text-align: center;">Mutant Ape Yacht Club
+        </a></h4>
+      </div>
+      <div class="col4">
+        <a href="mb.html">
+          <img src="owl.png" alt="">
+          <h4 style="text-align: center;">Moonbirds
+        </a></h4>
+      </div>
+      <div class="col4"><a href="pudgy.html">
+          <img src="penguin.png" alt="">
+          <h4 style="text-align: center;">Pudgy Penguin
+        </a></h4>
+      </div>
+    </div>
+  </div>
+  <div class="footer" ng-controller="ngcont">
+    <div ng-repeat="review in reviews">
+        <div class="box">
+            <h3>Name: {{ review.name }}</h3>
+            <p style="color: black;">Review: "{{ review.rev }}"</p>
+        </div>
+    </div>
+    <form name="fm1" ng-submit="submitForm()" novalidate>
+        <h2>Because, Your reviews do matter✨</h2>
+        <div class="namebox">
+            Name: <input class="inp" size="50" type="text" name="nm" ng-model="nm" required>
+            <span style="color: red;" ng-show="fm1.nm.$invalid && fm1.nm.$touched">Required field!</span>
+        </div>
+        <br>
+        <br>
+        <div class="revbox">
+            Review: <input class="inp" size="50" type="text" name="rev" ng-model="rev" required>
+            <span style="color: red;" ng-show="fm1.rev.$invalid && fm1.rev.$touched">Required field!</span>
+        </div>
+        <br>
+        <br>
+        <button type="submit" style="border-radius: 10px;">Post</button>
+    </form>
+</div>
+  <script>
+    var mod1 = angular.module("myapp", []);
+mod1.controller("ngcont", function ($scope) {
+    $scope.nm = "";
+    $scope.rev = "";
+    $scope.submitted = false;
+    $scope.reviews = [];
+
+    $scope.submitForm = function () {
+        if ($scope.fm1.$valid) {
+            $scope.reviews.push({
+                "name": $scope.nm,
+                "rev": $scope.rev
+            });
+            $scope.nm = "";
+            $scope.rev = "" // Clear form fields after submission
+            $scope.submitted = true;
+        }
+    };
+});
+
+  </script>
+  <script src="homejs.js"></script>
+
+</body>
+
+</html>
